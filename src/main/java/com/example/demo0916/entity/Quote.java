@@ -1,23 +1,26 @@
 package com.example.demo0916.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 public class Quote {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String content;
-    private String from;
+    private String person;
+
+    public Quote(String content, String from) {
+        this.content = content;
+        this.person = from;
+    }
+
+    protected Quote() {
+    }
 
     public Long getId() {
         return id;
@@ -35,12 +38,12 @@ public class Quote {
         this.content = content;
     }
 
-    public String getFrom() {
-        return from;
+    public String getPerson() {
+        return person;
     }
 
-    public void setFrom(String from) {
-        this.from = from;
+    public void setPerson(String person) {
+        this.person = person;
     }
 
 }
